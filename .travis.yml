@@ -1,8 +1,12 @@
 language: cpp
 compiler:
   - gcc
-before_install:
-  - sudo apt-get install gfortran -y
+sudo: false
+addons:
+  apt:
+    packages:
+    - cmake
+    - gfortran
 script:
   - mkdir ./build
   - cd ./build
