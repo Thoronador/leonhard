@@ -35,7 +35,7 @@ namespace libmath
    */
   template<typename intT, intT f0, intT f1> struct Fibonacci
   {
-    static_assert(std::is_integral<intT>::value, "Template type intT in PrimeFactor must be an integral type!");
+    static_assert(std::is_integral<intT>::value, "Template type intT in struct Fibonacci must be an integral type!");
 
     /** \brief calculates the n-th Fibonacci number by using naive recursion
      *
