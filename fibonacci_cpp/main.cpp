@@ -33,22 +33,32 @@ int main()
   const unsigned int n=45;
   //use iterative function
   const std::chrono::time_point<std::chrono::steady_clock> it_start = std::chrono::steady_clock::now();
-  std::cout << "f("<<n<<") = " << fibo.iterative(n) << " (iterative)" << std::endl;
+  const uint64_t iterative = fibo.iterative(n);
   const auto it_end = std::chrono::steady_clock::now();
+  std::cout << "f("<<n<<") = " << iterative << " (iterative)" << std::endl;
 
   //recursive function (sloooooooooooow!)
   const auto rec_start = std::chrono::steady_clock::now();
-  std::cout << "f("<<n<<") = " << fibo.recursive(n) << " (recursive)" << std::endl;
+  const uint64_t recursive = fibo.recursive(n);
   const auto rec_end = std::chrono::steady_clock::now();
+  std::cout << "f("<<n<<") = " << recursive << " (recursive)" << std::endl;
 
   //"fast" recursive function
   const auto rec_fast_start = std::chrono::steady_clock::now();
-  std::cout << "f("<<n<<") = " << fibo.recursive_fast(n) << " (fast recursive)" << std::endl << std::endl;
+  const uint64_t recursive_fast = fibo.recursive_fast(n);
   const auto rec_fast_end = std::chrono::steady_clock::now();
+  std::cout << "f("<<n<<") = " << recursive_fast << " (fast recursive)" << std::endl;
+
+  //formula of Moivre and Binet - fast, but might be less precise
+  const auto moivre_start = std::chrono::steady_clock::now();
+  const uint64_t moivre = fibo.direct(n);
+  const auto moivre_end = std::chrono::steady_clock::now();
+  std::cout << "f("<<n<<") = " << moivre << " (Moivre/Binet)" << std::endl << std::endl;
 
   const auto durationIterative = it_end - it_start;
   const auto durationRecursive = rec_end - rec_start;
   const auto durationRecursiveFast = rec_fast_end - rec_fast_start;
+  const auto durationFloatingPoint = moivre_end - moivre_start;
 
   std::cout << "Durations:" << std::endl
             << "Iterative: " << std::chrono::duration_cast<std::chrono::microseconds>(durationIterative).count() << " microseconds" << std::endl
@@ -56,7 +66,8 @@ int main()
             << " (ca. " << std::chrono::duration_cast<std::chrono::seconds>(durationRecursive).count() << " seconds and "
             << std::chrono::duration_cast<std::chrono::milliseconds>(durationRecursive).count() % 1000 << " milliseconds)"
             << std::endl
-            << "Recursive (shorthand): " << std::chrono::duration_cast<std::chrono::microseconds>(durationRecursiveFast).count() << " microseconds" << std::endl;
+            << "Recursive (shorthand): " << std::chrono::duration_cast<std::chrono::microseconds>(durationRecursiveFast).count() << " microseconds" << std::endl
+            << "Floating point (Moivre/Binet): " << std::chrono::duration_cast<std::chrono::microseconds>(durationFloatingPoint).count() << " microseconds" << std::endl;
 
   return 0;
 }

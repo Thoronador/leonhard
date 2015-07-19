@@ -19,6 +19,7 @@
 */
 
 #include <cstdint>
+#include <cmath> //for sqrt()
 
 namespace libmath
 {
@@ -92,6 +93,22 @@ namespace libmath
         last = fibo;
       } //for
       return fibo;
+    }
+
+    /** \brief calculates the n-th Fibonacci number by using the formula of Moivre and Binet
+     *
+     * \param n the zero-based index of the desired Fibonacci number
+     * \return Returns the n-th Fibonacci number.
+     * \remarks Since this method uses floating point calculations internally,
+     *          it can (and will) result in decreased precision for large values
+     *          of n.
+     */
+    static intT direct(unsigned int n)
+    {
+      static const long double phi = (1.0L + sqrt(5.0L)) / 2.0L;
+      static const long double psi = (1.0L - sqrt(5.0L)) / 2.0L;
+
+      return static_cast<intT>((pow(phi, n) - pow(psi, n)) / (phi - psi));
     }
   }; //struct
 
