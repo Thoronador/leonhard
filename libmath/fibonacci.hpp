@@ -20,6 +20,7 @@
 
 #include <cstdint>
 #include <cmath> //for sqrt()
+#include <type_traits>
 
 namespace libmath
 {
@@ -34,6 +35,8 @@ namespace libmath
    */
   template<typename intT, intT f0, intT f1> struct Fibonacci
   {
+    static_assert(std::is_integral<intT>::value, "Template type intT in PrimeFactor must be an integral type!");
+
     /** \brief calculates the n-th Fibonacci number by using naive recursion
      *
      * \param n the zero-based index of the desired Fibonacci number
