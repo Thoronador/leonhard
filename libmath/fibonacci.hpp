@@ -26,7 +26,7 @@ namespace libmath
 {
   /** \brief struct to provide functions to calculate Fibonacci numbers
    *
-   * \remarks The type intT should an unsigned integer type (e.g. uint32_t oder uint64_t).
+   * \remarks The type intT should an unsigned integer type (e.g. uint32_t or uint64_t).
    *          The values f0 and f1 are the values of the first two Fibinacci numbers.
    *          E.g., if your sequence shall be 1, 2, 3, 5, 8, 13, 21, ...,
    *          then set f0 to 1 and f2 to 2.
