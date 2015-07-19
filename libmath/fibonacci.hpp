@@ -56,10 +56,20 @@ namespace libmath
      */
     static intT recursive_fast(unsigned int n)
     {
-      //for larger values of n, use alternative formula
-      if (n>6)
+      //For larger values of n, use alternative formula,
+      // ->   f(n) = 305 * f(n-12) + 72 * f(n-15), n>14
+      if (n>=15)
+        return 305*recursive_fast(n-12)+72*recursive_fast(n-15);
+      // ->   f(n) = 72 * f(n-9) + 17 * f(n-12), n>11
+      if (n>=12)
+        return 72*recursive_fast(n-9)+17*recursive_fast(n-12);
+      // ->   f(n) = 17 * f(n-6) + 4 * f(n-9), n>8
+      if (n>=9)
+        return 17*recursive_fast(n-6)+4*recursive_fast(n-9);
+      // ->   f(n) = 4 * f(n-3) + f(n-6), n>5
+      if (n>=6)
         return 4*recursive_fast(n-3)+recursive_fast(n-6);
-      //For n in [0;6] fall back to normal recursive function.
+      //For n in [0;6) fall back to normal recursive function.
       return recursive(n);
     }
 
