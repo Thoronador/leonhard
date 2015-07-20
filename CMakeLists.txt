@@ -13,3 +13,6 @@ add_subdirectory (fibonacci_cpp)
 
 # Recurse into subdirectory for problem 3.
 add_subdirectory (p003_largest_prime_factor)
+
+# Recurse into subdirectory for problem 14.
+add_subdirectory (p014_longest_collatz_sequence)
