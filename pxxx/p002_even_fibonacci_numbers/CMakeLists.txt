@@ -16,6 +16,6 @@ else (Fortran_COMPILER_NAME MATCHES "gfortran.*")
 endif (Fortran_COMPILER_NAME MATCHES "gfortran.*")
 
 add_executable(p002_even_fibonacci_numbers
-    ../modules_fortran/divisible.f95
-    ../modules_fortran/fibonacci_1_2.f95
+    ../../modules_fortran/divisible.f95
+    ../../modules_fortran/fibonacci_1_2.f95
     p002.f95)

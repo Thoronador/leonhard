@@ -19,7 +19,7 @@
 
 #include <cstdint>
 #include <iostream>
-#include "../libmath/prime.hpp"
+#include "../../libmath/prime.hpp"
 
 int main()
 {

@@ -16,5 +16,5 @@ else (Fortran_COMPILER_NAME MATCHES "gfortran.*")
 endif (Fortran_COMPILER_NAME MATCHES "gfortran.*")
 
 add_executable(p001_multiples_of_3_and_5
-    ../modules_fortran/divisible.f95
+    ../../modules_fortran/divisible.f95
     p001.f95)

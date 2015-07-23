@@ -19,7 +19,7 @@
 
 #include <cstdint>
 #include <iostream>
-#include "../libmath/collatz.hpp"
+#include "../../libmath/collatz.hpp"
 
 int main()
 {
