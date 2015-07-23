@@ -70,6 +70,10 @@ namespace libmath
   {
     public:
       static std::vector<PrimeFactor<intT> > compute(const intT n);
+
+      static std::vector<PrimeFactor<intT> > max(const std::vector<PrimeFactor<intT> >& one, const std::vector<PrimeFactor<intT> >& two);
+
+      static intT number(const std::vector<PrimeFactor<intT> >& factors);
   }; //struct
 
 
@@ -122,6 +126,57 @@ namespace libmath
       result.push_back(PrimeFactor<intT>(iter->first, iter->second));
     } //for
     return std::move(result);
+  } //function
+
+  template<typename intT>
+  std::vector<PrimeFactor<intT> > PrimeFactors<intT>::max(const std::vector<PrimeFactor<intT> >& one, const std::vector<PrimeFactor<intT> >& two)
+  {
+    std::vector<PrimeFactor<intT> > result(one);
+    typename std::vector<PrimeFactor<intT> >::iterator iterOne = result.begin();
+    typename std::vector<PrimeFactor<intT> >::const_iterator iterTwo = two.begin();
+
+    while (iterOne != result.end() && iterTwo != two.end())
+    {
+      if (iterOne->prime == iterTwo->prime)
+      {
+        iterOne->exponent = std::max(iterOne->exponent, iterTwo->exponent);
+        ++iterOne;
+        ++iterTwo;
+      } //if base prime numbers are equal
+      else if (iterOne->prime > iterTwo->prime)
+      {
+        result.insert(iterOne, *iterTwo);
+        //reset iterators to begin, because iterator might get invalidated by insert
+        iterOne = result.begin();
+        iterTwo = two.begin();
+      } //else if prime is missing in first iter
+      else
+      {
+        //  iterOne->prime < iterTwo->prime
+        //  ---> means there is no work to do except increasing iterator
+        ++iterOne;
+      } //else
+    } //while
+    //add remaining factors of second part
+    while (iterTwo != two.end())
+    {
+      result.push_back(*iterTwo);
+      ++iterTwo;
+    } //while
+
+    return std::move(result);
+  } //function
+
+  template<typename intT>
+  intT PrimeFactors<intT>::number(const std::vector<PrimeFactor<intT> >& factors)
+  {
+    intT result = 1;
+    for(auto && i : factors)
+    {
+      for(intT j = 1; j<=i.exponent; ++j)
+        result *= i.prime;
+    } //for
+    return result;
   } //function
 
 } //namespace
