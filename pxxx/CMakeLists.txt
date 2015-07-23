@@ -8,5 +8,8 @@ add_subdirectory (p002_even_fibonacci_numbers)
 # Recurse into subdirectory for problem 3.
 add_subdirectory (p003_largest_prime_factor)
 
+# Recurse into subdirectory for problem 5.
+add_subdirectory (p005_smallest_multiple)
+
 # Recurse into subdirectory for problem 14.
 add_subdirectory (p014_longest_collatz_sequence)
