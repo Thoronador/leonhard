@@ -14,5 +14,9 @@ add_subdirectory (p005_smallest_multiple)
 # Recurse into subdirectory for problem 7.
 add_subdirectory (p007_10001st_prime)
 
+# Recurse into subdirectories for problem 9.
+add_subdirectory (p009_special_pythagorean_triplet_fortran)
+add_subdirectory (p009_special_pythagorean_triplet_cpp)
+
 # Recurse into subdirectory for problem 14.
 add_subdirectory (p014_longest_collatz_sequence)
