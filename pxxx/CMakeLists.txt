@@ -14,6 +14,10 @@ add_subdirectory (p004_largest_palindrome_product)
 # Recurse into subdirectory for problem 5.
 add_subdirectory (p005_smallest_multiple)
 
+# Recurse into subdirectories for problem 6.
+add_subdirectory (p006_sum_square_difference_cpp)
+add_subdirectory (p006_sum_square_difference_fortran)
+
 # Recurse into subdirectory for problem 7.
 add_subdirectory (p007_10001st_prime)
 
