@@ -21,6 +21,9 @@ add_subdirectory (p006_sum_square_difference_fortran)
 # Recurse into subdirectory for problem 7.
 add_subdirectory (p007_10001st_prime)
 
+# Recurse into subdirectory for problem 8.
+add_subdirectory (p008_largest_product_in_series)
+
 # Recurse into subdirectories for problem 9.
 add_subdirectory (p009_special_pythagorean_triplet_fortran)
 add_subdirectory (p009_special_pythagorean_triplet_cpp)
