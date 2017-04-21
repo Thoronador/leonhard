@@ -63,24 +63,24 @@ int main(int argc, char **argv)
   if (argc>1 and argv!=NULL)
   {
     int i=1;
-    while (i<argc)
+    while (i < argc)
     {
-      if (argv[i]!=NULL)
+      if (argv[i] != NULL)
       {
         const std::string param = std::string(argv[i]);
-        if (param=="--help" or param=="-?")
+        if (param == "--help" or param == "-?")
         {
           showHelp();
           return 0;
         }//if help wanted
         //version information requested?
-        else if (param=="--version")
+        else if (param == "--version")
         {
           showVersion();
           return 0;
         }
         //recursive variant requested
-        else if ((param=="-R") or (param=="-r") or (param=="--recursive"))
+        else if ((param == "-R") or (param == "-r") or (param == "--recursive"))
         {
           if (!doRecursive)
           {

@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 {
   std::string fileName = "digits.txt";
 
-  if (argc>1)
+  if (argc > 1)
   {
     if (argv != nullptr)
     {
@@ -53,7 +53,7 @@ int main(int argc, char** argv)
 
   std::array<uint_fast8_t, cDigitCount> digits;
   uint_fast64_t i = 0;
-  while (i<cDigitCount-1)
+  while (i < cDigitCount - 1)
   {
     std::string line;
     std::getline(inputStream, line, '\n');
@@ -91,11 +91,11 @@ int main(int argc, char** argv)
   uint_fast64_t max_prod = 0;
   uint_fast64_t max_start_idx = 0;
 
-  for (i=0; i<=cDigitCount-cSeriesLength; ++i)
+  for (i = 0; i <= cDigitCount - cSeriesLength; ++i)
   {
     uint_fast32_t j = 0;
     uint_fast64_t product = 1;
-    for(j=0; j<cSeriesLength; ++j)
+    for(j = 0; j < cSeriesLength; ++j)
     {
       product *= digits[i+j];
     }
@@ -107,8 +107,8 @@ int main(int argc, char** argv)
   } //for i
 
   std::cout << "The largest product is " << max_prod << " and starts at digit "
-            << max_start_idx+1 << "." << std::endl << "Digits in sequence:";
-  for(i=max_start_idx; i<max_start_idx+cSeriesLength; ++i)
+            << max_start_idx + 1 << "." << std::endl << "Digits in sequence:";
+  for(i = max_start_idx; i < max_start_idx + cSeriesLength; ++i)
     std::cout << " " << static_cast<unsigned int>(digits[i]);
   std::cout << std::endl;
   return 0;

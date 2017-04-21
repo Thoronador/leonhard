@@ -27,7 +27,7 @@ int main()
   uint64_t max_len = 0;
   uint32_t max_i = 0;
 
-  for (i=1; i < 1000000; ++i)
+  for (i = 1; i < 1000000; ++i)
   {
     const auto collatzSequence = libmath::Collatz<uint64_t>::getSequenceFor(i);
     if (collatzSequence.size() > max_len)

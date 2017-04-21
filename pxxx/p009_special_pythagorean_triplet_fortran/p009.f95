@@ -20,13 +20,13 @@ program p009_special_pythagorean_triplet
   integer :: a, b, c
 
   do a = 3, 1000-2
-    do b = a+1, 1000-1
+    do b = a + 1, 1000 - 1
       c = 1000 - a - b
-      if (a*a+b*b==c*c) then
+      if (a*a + b*b == c*c) then
         write(*,*) "a:",a
         write(*,*) "b:",b
         write(*,*) "c:",c
-        write(*,*) "Product a*b*c:", a*b*c
+        write(*,*) "Product a*b*c:", a * b * c
       end if
     end do
   end do

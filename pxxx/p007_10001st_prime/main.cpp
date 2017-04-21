@@ -26,7 +26,7 @@ int main()
 {
   std::vector<uint_least64_t> primes;
   uint_least64_t i = 0;
-  for (i=2; primes.size()<10001; ++i)
+  for (i = 2; primes.size() < 10001; ++i)
   {
     if (libmath::Prime<uint_least64_t>::is(i))
       primes.push_back(i);

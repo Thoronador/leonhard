@@ -27,7 +27,7 @@ program p006_sum_square_difference
     sum = sum + i
   end do
 
-  square_of_sum = sum**2
+  square_of_sum = sum ** 2
 
   write(*,*) "Sum of squares: ", sum_of_squares
   write(*,*) "Square of sum:  ", square_of_sum

@@ -36,7 +36,7 @@ int main()
   std::vector<libmath::PrimeFactor<uint_least64_t> > factors_max = libmath::PrimeFactors<uint_least64_t>::compute(2);
 
   uint_least64_t i = 0;
-  for (i=1; i<=20; ++i)
+  for (i = 1; i <= 20; ++i)
   {
     std::cout << "i: " << i << std::endl;
     factors_current = libmath::PrimeFactors<uint_least64_t>::compute(i);

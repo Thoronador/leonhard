@@ -28,7 +28,7 @@ program p002_even_fibonacci_numbers
   do i = 0, 999999
     fibonacci_n = fibonacci_iterative(i)
     if (fibonacci_n > 4000000) then
-      ! break of loop
+      ! break out of loop
       exit
     end if
     if (isDivisibleBy(fibonacci_n, 2)) then

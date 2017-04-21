@@ -24,17 +24,17 @@ int main()
 {
   int_fast32_t a, b, c;
 
-  for (a = 3; a<=1000-2; ++a)
+  for (a = 3; a <= 1000 - 2; ++a)
   {
-    for (b = a+1; b<=1000-1; ++b)
+    for (b = a + 1; b <= 1000 - 1; ++b)
     {
       c = 1000 - a - b;
-      if (a*a+b*b==c*c)
+      if (a*a + b*b == c*c)
       {
         std::cout << "a: " << a << std::endl
                   << "b: " << b << std::endl
                   << "c: " << c << std::endl
-                  << "Product a*b*c: " << a*b*c << std::endl;
+                  << "Product a*b*c: " << a * b * c << std::endl;
       } //if
     } //for b
   } //for a

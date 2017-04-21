@@ -28,13 +28,13 @@ int main()
   int_fast64_t sum_of_squares = 0;
   int_fast64_t sum = 0;
 
-  for (i = 1; i<=limit; ++i)
+  for (i = 1; i <= limit; ++i)
   {
     sum_of_squares += i*i;
     sum += i;
   } //for i
 
-  const int_fast64_t square_of_sum = sum*sum;
+  const int_fast64_t square_of_sum = sum * sum;
   std::cout << "Sum of squares of the " << limit << " natural numbers: "
             << sum_of_squares << std::endl << "Square of sum: "
             << square_of_sum << std::endl

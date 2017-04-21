@@ -1,4 +1,4 @@
-! (C) 2009, 2011 Dirk Stolle
+! (C) 2009, 2011  Dirk Stolle
 !
 ! This programme calculates an approximate value for Pi using the formula from
 ! Leibniz:
