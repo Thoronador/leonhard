@@ -1,7 +1,7 @@
 /*
  -------------------------------------------------------------------------------
     This file is part of libmath.
-    Copyright (C) 2015  Dirk Stolle
+    Copyright (C) 2015, 2017  Dirk Stolle
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,6 +17,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -------------------------------------------------------------------------------
 */
+
+#ifndef LIBMATH_FIBONACCI_HPP
+#define LIBMATH_FIBONACCI_HPP
 
 #include <cstdint>
 #include <cmath> //for sqrt()
@@ -48,7 +51,7 @@ namespace libmath
         return f0;
       if (n == 1)
         return f1;
-      return recursive(n-1)+recursive(n-2);
+      return recursive(n-1) + recursive(n-2);
     }
 
 
@@ -61,17 +64,17 @@ namespace libmath
     {
       //For larger values of n, use alternative formula,
       // ->   f(n) = 305 * f(n-12) + 72 * f(n-15), n>14
-      if (n>=15)
-        return 305*recursive_fast(n-12)+72*recursive_fast(n-15);
+      if (n >= 15)
+        return 305 * recursive_fast(n-12) + 72 * recursive_fast(n-15);
       // ->   f(n) = 72 * f(n-9) + 17 * f(n-12), n>11
-      if (n>=12)
-        return 72*recursive_fast(n-9)+17*recursive_fast(n-12);
+      if (n >= 12)
+        return 72 * recursive_fast(n-9) + 17 * recursive_fast(n-12);
       // ->   f(n) = 17 * f(n-6) + 4 * f(n-9), n>8
-      if (n>=9)
-        return 17*recursive_fast(n-6)+4*recursive_fast(n-9);
+      if (n >= 9)
+        return 17 * recursive_fast(n-6) + 4 * recursive_fast(n-9);
       // ->   f(n) = 4 * f(n-3) + f(n-6), n>5
-      if (n>=6)
-        return 4*recursive_fast(n-3)+recursive_fast(n-6);
+      if (n >= 6)
+        return 4 * recursive_fast(n-3) + recursive_fast(n-6);
       //For n in [0;6) fall back to normal recursive function.
       return recursive(n);
     }
@@ -97,7 +100,7 @@ namespace libmath
       last = f1;
       last_but_one = f0;
 
-      for (i=2; i <= n; ++i)
+      for (i = 2; i <= n; ++i)
       {
         // add the both most recent numbers
         fibo = last + last_but_one;
@@ -129,3 +132,5 @@ namespace libmath
   typedef Fibonacci<uint64_t, 0, 1> DefaultFibonacci;
   typedef Fibonacci<uint64_t, 1, 2> DistinctFibonacci;
 } //namespace
+
+#endif // LIBMATH_FIBONACCI_HPP

@@ -1,7 +1,7 @@
 /*
  -------------------------------------------------------------------------------
     This file is part of libmath.
-    Copyright (C) 2015  Dirk Stolle
+    Copyright (C) 2015, 2017  Dirk Stolle
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
  -------------------------------------------------------------------------------
 */
 
-#ifndef COLLATZ_HPP
-#define COLLATZ_HPP
+#ifndef LIBMATH_COLLATZ_HPP
+#define LIBMATH_COLLATZ_HPP
 
 #include <limits>
 #include <stdexcept>
@@ -48,9 +48,9 @@ namespace libmath
   template<typename intT>
   std::vector<intT> Collatz<intT>::getSequenceFor(intT n)
   {
-    if (n==0)
+    if (n == 0)
       throw std::invalid_argument("Starting value n of Collatz sequence must not be zero!");
-    const intT limitForStuff = (std::numeric_limits<intT>::max() -1) / 3;
+    const intT limitForStuff = (std::numeric_limits<intT>::max() - 1) / 3;
     std::vector<intT> result;
     result.push_back(n);
     while (n != 1)
@@ -67,7 +67,7 @@ namespace libmath
           throw std::range_error("Cannot compute 3*n+1 without range overflow!");
         }
 
-        n = 3*n+1;
+        n = 3 * n + 1;
       }
       result.push_back(n);
     } //while
@@ -75,4 +75,4 @@ namespace libmath
   }
 } //namespace
 
-#endif // COLLATZ_HPP
+#endif // LIBMATH_COLLATZ_HPP

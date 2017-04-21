@@ -1,7 +1,7 @@
 /*
  -------------------------------------------------------------------------------
     This file is part of libmath.
-    Copyright (C) 2015  Dirk Stolle
+    Copyright (C) 2015, 2017  Dirk Stolle
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
  -------------------------------------------------------------------------------
 */
 
-#ifndef PRIME_HPP
-#define PRIME_HPP
+#ifndef LIBMATH_PRIME_HPP
+#define LIBMATH_PRIME_HPP
 
 #include <type_traits>
 #include <cmath> //for sqrt
@@ -33,7 +33,7 @@ namespace libmath
   class Prime
   {
     static_assert(std::is_integral<intT>::value, "Template type intT in Prime must be an integral type!");
-    static_assert(std::is_unsigned<intT>::value, "Template type intT in Prime shall be an unsigned type!");
+    static_assert(std::is_unsigned<intT>::value, "Template type intT in Prime must be an unsigned type!");
     public:
       /** \brief checks, if the parameter is a prime number
        *
@@ -80,13 +80,13 @@ namespace libmath
   template<typename intT>
   bool Prime<intT>::is(const intT n)
   {
-    if (n<2)
+    if (n < 2)
       return false;
-    if (n==2)
+    if (n == 2)
       return true;
     intT i = 2;
     intT limit = static_cast<intT>(sqrt(n));
-    for (i=2; i<=limit; ++i)
+    for (i = 2; i <= limit; ++i)
     {
       if (n%i == 0)
         return false;
@@ -98,7 +98,7 @@ namespace libmath
   std::vector<PrimeFactor<intT> > PrimeFactors<intT>::compute(const intT n)
   {
     std::vector<PrimeFactor<intT> > result;
-    if (n<=3)
+    if (n <= 3)
     {
       result.push_back(PrimeFactor<intT>(n, 1));
       return std::move(result);
@@ -108,7 +108,7 @@ namespace libmath
 
     intT i = 2;
     intT number = n;
-    for (i=2; i<=number; ++i)
+    for (i = 2; i <= number; ++i)
     {
       if (Prime<intT>::is(i))
       {
@@ -173,7 +173,7 @@ namespace libmath
     intT result = 1;
     for(auto && i : factors)
     {
-      for(intT j = 1; j<=i.exponent; ++j)
+      for(intT j = 1; j <= i.exponent; ++j)
         result *= i.prime;
     } //for
     return result;
@@ -181,4 +181,4 @@ namespace libmath
 
 } //namespace
 
-#endif // PRIME_HPP
+#endif // LIBMATH_PRIME_HPP

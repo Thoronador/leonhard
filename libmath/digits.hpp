@@ -1,7 +1,7 @@
 /*
  -------------------------------------------------------------------------------
     This file is part of libmath.
-    Copyright (C) 2015  Dirk Stolle
+    Copyright (C) 2015, 2017  Dirk Stolle
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
  -------------------------------------------------------------------------------
 */
 
-#ifndef DIGITS_HPP_INCLUDED
-#define DIGITS_HPP_INCLUDED
+#ifndef LIBMATH_DIGITS_HPP
+#define LIBMATH_DIGITS_HPP
 
 #include <algorithm>
 #include <stdexcept>
@@ -39,20 +39,21 @@ namespace libmath
       /** \brief splits the parameter into single digits
        *
        * \param n the number that shall be split
-       * \param base
+       * \param base  the base of the numeral system, e.g. 10 for decimal
        * \return Returns true, if n is a palindrome.
        *         Returns false, if it is not.
        */
-      static std::vector<baseT> get(intT n, const baseT base=10);
+      static std::vector<baseT> get(intT n, const baseT base = 10);
 
 
       /** \brief checks, if the parameter is a palindrome number
        *
        * \param n the number that shall be checked
+       * \param base  the base of the numeral system, e.g. 10 for decimal
        * \return Returns true, if n is a palindrome.
        *         Returns false, if it is not.
        */
-      static bool palindrome(const intT n, const baseT base=10);
+      static bool palindrome(const intT n, const baseT base = 10);
   }; //class
 
 
@@ -62,7 +63,7 @@ namespace libmath
     if(base < 2)
       throw std::invalid_argument("Error: base in Digits::get() must be larger than one!");
 
-    if (n<base)
+    if (n < base)
       return std::move(std::vector<baseT>({static_cast<baseT>(n)}));
 
     std::vector<baseT> digits;
@@ -88,7 +89,7 @@ namespace libmath
     const typename std::vector<baseT>::size_type limit = len / 2;
     typename std::vector<baseT>::size_type i = 0;
 
-    for (i=0; i<=limit; ++i)
+    for (i = 0; i <= limit; ++i)
     {
       if (dig[i] != dig[len-1-i])
         return false;
@@ -97,4 +98,4 @@ namespace libmath
   } //function
 } //namespace
 
-#endif // DIGITS_HPP_INCLUDED
+#endif // LIMBATH_DIGITS_HPP
