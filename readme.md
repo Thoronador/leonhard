@@ -4,7 +4,7 @@ There is no description yet - for a reason.
  programmer.)
 
 ## Copyright and Licensing
-Copyright 2009, 2011, 2015, 2017  Dirk Stolle
+Copyright 2009, 2011, 2015, 2017, 2018  Dirk Stolle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -1,7 +1,7 @@
 /*
  -------------------------------------------------------------------------------
     This file is part of libmath.
-    Copyright (C) 2015, 2017  Dirk Stolle
+    Copyright (C) 2015, 2017, 2018  Dirk Stolle
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <type_traits>
+#include <vector>
 
 namespace libmath
 {
